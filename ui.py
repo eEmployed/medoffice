@@ -9,36 +9,46 @@ def _run_overlay_selection(on_done):
     coords = {"x1": None, "y1": None, "x2": None, "y2": None}
 
     def on_mouse_down(event):
-        coords["x1"], coords["y1"] = event.x, event.y
+        coords["x1"], coords["y1"] = event.x_root, event.y_root
         canvas.delete("rect")
 
     def on_mouse_move(event):
         if coords["x1"] is None:
             return
         canvas.delete("rect")
+        # Bildschirmkoordinaten in Canvas-Koordinaten umrechnen
+        cx1 = coords["x1"] - root.winfo_rootx()
+        cy1 = coords["y1"] - root.winfo_rooty()
+        cx2 = event.x_root - root.winfo_rootx()
+        cy2 = event.y_root - root.winfo_rooty()
         canvas.create_rectangle(
-            coords["x1"], coords["y1"], event.x, event.y,
+            cx1, cy1, cx2, cy2,
             outline="red", width=2, tag="rect"
         )
 
     def on_mouse_up(event):
-        coords["x2"], coords["y2"] = event.x, event.y
-        root.quit()
+        coords["x2"], coords["y2"] = event.x_root, event.y_root
+        root.destroy()
 
     root = tk.Toplevel()
     root.attributes("-fullscreen", True)
     root.attributes("-alpha", 0.3)
+    root.attributes("-topmost", True)
     root.configure(bg="black")
+    root.lift()
+    root.focus_force()
 
-    canvas = tk.Canvas(root, cursor="cross", bg="black")
+    canvas = tk.Canvas(root, cursor="cross", bg="black", highlightthickness=0)
     canvas.pack(fill="both", expand=True)
 
     canvas.bind("<ButtonPress-1>", on_mouse_down)
     canvas.bind("<B1-Motion>", on_mouse_move)
     canvas.bind("<ButtonRelease-1>", on_mouse_up)
 
-    root.mainloop()
-    root.destroy()
+    # ESC zum Abbrechen
+    root.bind("<Escape>", lambda e: root.destroy())
+
+    root.wait_window()
 
     if None in coords.values():
         return
@@ -80,27 +90,35 @@ def calibrate_inputline(status_var):
     pos = {"x": None, "y": None}
 
     def on_click(event):
-        pos["x"], pos["y"] = event.x, event.y
-        root.quit()
+        pos["x"], pos["y"] = event.x_root, event.y_root
+        root.destroy()
 
     root = tk.Toplevel()
     root.attributes("-fullscreen", True)
     root.attributes("-alpha", 0.3)
+    root.attributes("-topmost", True)
     root.configure(bg="black")
+    root.lift()
+    root.focus_force()
 
-    label = tk.Label(
-        root,
-        text="Klicken Sie auf die Eingabezeile in Medical Office",
-        font=("Arial", 20, "bold"), fg="white", bg="black"
-    )
-    label.place(relx=0.5, rely=0.5, anchor="center")
-
+    # Canvas als Klickflaeche ueber den gesamten Bildschirm
     canvas = tk.Canvas(root, cursor="crosshair", bg="black", highlightthickness=0)
     canvas.pack(fill="both", expand=True)
+
+    # Label AUF dem Canvas (nicht darunter)
+    canvas.create_text(
+        root.winfo_screenwidth() // 2, root.winfo_screenheight() // 2,
+        text="Klicken Sie auf die Eingabezeile in Medical Office",
+        font=("Arial", 20, "bold"), fill="white"
+    )
+
+    # Gesamter Canvas ist klickbar
     canvas.bind("<ButtonPress-1>", on_click)
 
-    root.mainloop()
-    root.destroy()
+    # ESC zum Abbrechen
+    root.bind("<Escape>", lambda e: root.destroy())
+
+    root.wait_window()
 
     if pos["x"] is not None:
         save_inputline_pos((pos["x"], pos["y"]))

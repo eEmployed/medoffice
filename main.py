@@ -45,7 +45,11 @@ def restart_as_admin():
 if os.name == 'nt' and not is_admin():
     restart_as_admin()
 
-import keyboard
+try:
+    import keyboard
+    HAS_KEYBOARD = True
+except ImportError:
+    HAS_KEYBOARD = False
 
 run_requested = False
 goae_data = None
@@ -173,12 +177,16 @@ def trigger_run():
     run_requested = True
 
 
-def start_hotkeys():
-    keyboard.add_hotkey("F11", trigger_run)
-    keyboard.wait()
-
-
-threading.Thread(target=start_hotkeys, daemon=True).start()
+keyboard_registered = False
+if HAS_KEYBOARD:
+    try:
+        def start_hotkeys():
+            keyboard.add_hotkey("F11", trigger_run)
+            keyboard.wait()
+        threading.Thread(target=start_hotkeys, daemon=True).start()
+        keyboard_registered = True
+    except Exception:
+        keyboard_registered = False
 
 
 # GUI Loop
@@ -195,6 +203,10 @@ app = tk.Tk()
 app.title("GOAe-Ziffern Assistent")
 app.geometry("420x340")
 app.resizable(False, False)
+
+# Tkinter-Fallback fuer F11 (funktioniert auch ohne Admin-Rechte)
+if not keyboard_registered:
+    app.bind_all("<F11>", lambda e: trigger_run())
 
 # Titel
 title_frame = tk.Frame(app, bg="#2196F3", height=45)
