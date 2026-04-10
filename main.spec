@@ -9,7 +9,12 @@ a = Analysis(
         ('goae_data.json', '.'),
         ('config.json', '.'),
     ],
-    hiddenimports=['ocr', 'parser', 'goae_db', 'auto_entry', 'ui'],
+    hiddenimports=[
+        'ocr', 'parser', 'goae_db', 'auto_entry', 'ui',
+        'cv2', 'numpy', 'pyautogui', 'pytesseract',
+        'keyboard', 'PIL', 'pynput', 'pynput.keyboard',
+        'pynput.keyboard._win32', 'pynput.mouse', 'pynput.mouse._win32',
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -22,8 +27,9 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
+    a.binaries,
+    a.datas,
     [],
-    exclude_binaries=True,
     name='GOAe-Assistent',
     debug=False,
     bootloader_ignore_signals=False,
@@ -35,13 +41,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name='GOAe-Assistent',
+    uac_admin=True,
 )

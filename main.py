@@ -1,6 +1,9 @@
 import tkinter as tk
+from tkinter import messagebox
 import threading
-import keyboard
+import ctypes
+import sys
+import os
 
 from ocr import load_region, load_inputline_pos, load_patient_region
 from ocr import capture_and_ocr, capture_patient_info
@@ -11,6 +14,38 @@ from ui import (
     calibrate_ocr_region, calibrate_patient_region, calibrate_inputline,
     choose_diagnosis, choose_goae_codes, show_status_popup
 )
+
+
+def is_admin():
+    """Prueft ob das Programm mit Admin-Rechten laeuft."""
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except Exception:
+        return False
+
+
+def restart_as_admin():
+    """Startet das Programm mit Admin-Rechten neu."""
+    if getattr(sys, 'frozen', False):
+        exe = sys.executable
+    else:
+        exe = sys.executable
+    try:
+        ctypes.windll.shell32.ShellExecuteW(
+            None, "runas", exe,
+            " ".join(sys.argv) if not getattr(sys, 'frozen', False) else "",
+            None, 1
+        )
+    except Exception:
+        pass
+    sys.exit()
+
+
+# Admin-Check beim Start (nur auf Windows)
+if os.name == 'nt' and not is_admin():
+    restart_as_admin()
+
+import keyboard
 
 run_requested = False
 goae_data = None

@@ -5,8 +5,23 @@ import numpy as np
 import json
 import os
 import sys
+import shutil
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+# Tesseract-Pfad: Standardpfad oder im PATH suchen
+_tesseract_default = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+if os.path.isfile(_tesseract_default):
+    pytesseract.pytesseract.tesseract_cmd = _tesseract_default
+elif shutil.which("tesseract"):
+    pytesseract.pytesseract.tesseract_cmd = shutil.which("tesseract")
+else:
+    import tkinter.messagebox
+    tkinter.messagebox.showerror(
+        "Tesseract nicht gefunden",
+        "Bitte Tesseract-OCR installieren:\n"
+        "https://github.com/UB-Mannheim/tesseract/wiki\n\n"
+        "Nach der Installation das Programm neu starten."
+    )
+    sys.exit(1)
 
 CONFIG_FILE = "config.json"
 
