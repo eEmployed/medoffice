@@ -1,214 +1,138 @@
-import pyautogui
-import pytesseract
 import tkinter as tk
-import json
-import re
-from datetime import datetime
 import threading
 import keyboard
-import cv2
-import numpy as np
 
-# ========================
-# 🔤 Tesseract Pfad
-# ========================
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
-CONFIG_FILE = "config.json"
+from ocr import load_region, load_inputline_pos, load_patient_region
+from ocr import capture_and_ocr, capture_patient_info
+from parser import parse_entries, get_diagnoses, parse_patient_info
+from goae_db import load_goae_data, find_matching_codes
+from auto_entry import enter_codes_in_medical_office
+from ui import (
+    calibrate_ocr_region, calibrate_patient_region, calibrate_inputline,
+    choose_diagnosis, choose_goae_codes, show_status_popup
+)
 
 run_requested = False
+goae_data = None
 
 
-# ========================
-# 🔧 Kalibrierung
-# ========================
-def calibrate(status_var):
-    coords = {"x1": None, "y1": None, "x2": None, "y2": None}
+def update_status():
+    """Aktualisiert die Statusanzeige basierend auf der Konfiguration."""
+    region = load_region()
+    inputline = load_inputline_pos()
+    patient = load_patient_region()
 
-    def on_mouse_down(event):
-        coords["x1"], coords["y1"] = event.x, event.y
-        canvas.delete("rect")
+    done = sum(1 for x in [region, inputline, patient] if x)
 
-    def on_mouse_move(event):
-        if coords["x1"] is None:
-            return
-        canvas.delete("rect")
-        canvas.create_rectangle(
-            coords["x1"], coords["y1"], event.x, event.y,
-            outline="red", width=2, tag="rect"
-        )
-
-    def on_mouse_up(event):
-        coords["x2"], coords["y2"] = event.x, event.y
-        root.quit()
-
-    root = tk.Toplevel()
-    root.attributes("-fullscreen", True)
-    root.attributes("-alpha", 0.3)
-    root.configure(bg="black")
-
-    canvas = tk.Canvas(root, cursor="cross", bg="black")
-    canvas.pack(fill="both", expand=True)
-
-    canvas.bind("<ButtonPress-1>", on_mouse_down)
-    canvas.bind("<B1-Motion>", on_mouse_move)
-    canvas.bind("<ButtonRelease-1>", on_mouse_up)
-
-    root.mainloop()
-    root.destroy()
-
-    if None in coords.values():
-        return
-
-    x1, y1, x2, y2 = coords["x1"], coords["y1"], coords["x2"], coords["y2"]
-
-    left = min(x1, x2)
-    top = min(y1, y2)
-    right = max(x1, x2)
-    bottom = max(y1, y2)
-
-    width = right - left
-    height = bottom - top
-
-    if width < 10 or height < 10:
-        return
-
-    region = (left, top, width, height)
-
-    with open(CONFIG_FILE, "w") as f:
-        json.dump(region, f)
-
-    status_var.set("Bereich markiert ✅")
+    if done == 3:
+        status_var.set("Bereit - F11 druecken")
+        status_label.config(fg="#4CAF50")
+    elif done > 0:
+        missing = []
+        if not region:
+            missing.append("OCR-Bereich")
+        if not patient:
+            missing.append("Patientenbereich")
+        if not inputline:
+            missing.append("Eingabezeile")
+        status_var.set(f"Fehlt: {', '.join(missing)}")
+        status_label.config(fg="#FF9800")
+    else:
+        status_var.set("Bitte zuerst kalibrieren (Schritte 1-3)")
+        status_label.config(fg="#F44336")
 
 
-# ========================
-# 🧠 Parser (mit Datum-Fix)
-# ========================
-def parse_entries(text):
-    entries = []
-    current_date = None
-
-    lines = text.split("\n")
-
-    for line in lines:
-        line = line.strip()
-
-        if not line:
-            continue
-
-        date_match = re.search(r"\d{2}\.\d{2}\.\d{4}", line)
-
-        if date_match:
-            try:
-                current_date = datetime.strptime(date_match.group(), "%d.%m.%Y")
-            except:
-                continue
-
-            rest = line[date_match.end():].strip()
-        else:
-            if current_date is None:
-                continue
-            rest = line
-
-        parts = rest.split()
-
-        if len(parts) < 1:
-            continue
-
-        typ = parts[0].lower()
-        content = " ".join(parts[1:]) if len(parts) > 1 else ""
-
-
-        entries.append({
-            "date": current_date,
-            "type": typ,
-            "content": content
-        })
-
-    return entries
-
-
-# ========================
-# 🪟 Auswahlfenster (NEU!)
-# ========================
-def choose_da_entry(entries):
-    selected = {"value": None}
-
-    def select(event=None):
-        if not listbox.curselection():
-            return
-        selected["value"] = da_entries[listbox.curselection()[0]]
-        win.destroy()
-
-    win = tk.Toplevel()
-    win.title("Diagnose auswählen")
-    win.geometry("1000x500")
-
-    label = tk.Label(
-        win,
-        text="Welche Diagnose wollen Sie abrechnen?",
-        font=("Arial", 12, "bold")
-    )
-    label.pack(pady=10)
-
-    listbox = tk.Listbox(win, width=150, height=20)
-
-    # 🔥 nur "da"
-    da_entries = [e for e in entries if e["type"].startswith("da")]
-
-    for e in da_entries:
-        line = f"{e['date'].date()} | {e['content']}"
-        listbox.insert(tk.END, line)
-
-    listbox.pack(fill="both", expand=True, padx=10)
-    listbox.bind("<Double-Button-1>", select)
-
-    btn = tk.Button(win, text="Auswählen", command=select)
-    btn.pack(pady=10)
-
-    win.mainloop()
-    return selected["value"]
-
-
-# ========================
-# 🚀 Hauptfunktion
-# ========================
 def run():
-    try:
-        with open(CONFIG_FILE) as f:
-            region = tuple(json.load(f))
-    except:
+    global goae_data
+
+    region = load_region()
+    if not region:
+        status_var.set("Fehler: OCR-Bereich nicht kalibriert")
         return
 
-    img = pyautogui.screenshot(region=region)
+    if goae_data is None:
+        goae_data = load_goae_data()
 
-    # ✂️ nur linke Spalten
-    width, height = img.size
-    img = img.crop((0, 0, int(width * 0.65), height))
+    # 1. Patientendaten lesen (wenn kalibriert)
+    patient_info = None
+    patient_region = load_patient_region()
+    if patient_region:
+        status_var.set("Lese Patientendaten...")
+        app.update()
+        patient_text = capture_patient_info(patient_region)
+        patient_info = parse_patient_info(patient_text)
 
-    # 🧪 Bild verbessern
-    img_np = np.array(img)
-    gray = cv2.cvtColor(img_np, cv2.COLOR_BGR2GRAY)
-    _, thresh = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)
+    # 2. Krankenblatt lesen
+    status_var.set("Lese Krankenblatt...")
+    app.update()
 
-    text = pytesseract.image_to_string(thresh)
-
+    text = capture_and_ocr(region)
     entries = parse_entries(text)
 
     if not entries:
+        status_var.set("Keine Eintraege erkannt")
+        app.after(3000, update_status)
         return
 
-    entries.sort(key=lambda x: x["date"], reverse=True)
+    # 3. Diagnosen filtern
+    diagnoses = get_diagnoses(entries)
+    if not diagnoses:
+        status_var.set("Keine Diagnosen gefunden")
+        app.after(3000, update_status)
+        return
 
-    selected = choose_da_entry(entries)
+    pat_text = ""
+    if patient_info:
+        parts = []
+        if patient_info.get("age") is not None:
+            parts.append(f"{patient_info['age']}J")
+        if patient_info.get("gender"):
+            parts.append(patient_info["gender"])
+        if parts:
+            pat_text = f" | Patient: {'/'.join(parts)}"
 
-    if selected:
-        print("Gewählt:", selected)
+    status_var.set(f"{len(diagnoses)} Diagnose(n) erkannt{pat_text}")
+    app.update()
+
+    # 4. Diagnose auswaehlen
+    selected = choose_diagnosis(diagnoses)
+    if not selected:
+        update_status()
+        return
+
+    diagnosis_text = selected["content"]
+
+    # 5. GOAe-Ziffern matchen
+    matched_codes, matched_label = find_matching_codes(diagnosis_text, goae_data)
+
+    if not matched_codes:
+        matched_codes = {
+            "1": goae_data["codes"].get("1", "Beratung"),
+            "5": goae_data["codes"].get("5", "Symptombezogene Untersuchung"),
+        }
+        matched_label = "Keine spezifische Zuordnung - Grundleistungen"
+
+    # 6. Ziffern-Auswahl mit Validierung
+    selected_codes = choose_goae_codes(
+        matched_codes, matched_label, diagnosis_text,
+        goae_data, patient_info
+    )
+
+    if not selected_codes:
+        update_status()
+        return
+
+    # 7. Automatisch in Medical Office eintragen
+    status_var.set(f"Trage {len(selected_codes)} Ziffern ein...")
+    app.update()
+
+    enter_codes_in_medical_office(selected_codes)
+
+    show_status_popup(f"{len(selected_codes)} Ziffern eingetragen")
+    update_status()
 
 
-# ========================
-# 🎯 Hotkey Fix
-# ========================
+# Hotkey-System
 def trigger_run():
     global run_requested
     run_requested = True
@@ -222,9 +146,7 @@ def start_hotkeys():
 threading.Thread(target=start_hotkeys, daemon=True).start()
 
 
-# ========================
-# 🔄 GUI Loop
-# ========================
+# GUI Loop
 def check_run():
     global run_requested
     if run_requested:
@@ -233,28 +155,58 @@ def check_run():
     app.after(100, check_run)
 
 
-# ========================
-# 🪟 Hauptfenster
-# ========================
+# === Hauptfenster ===
 app = tk.Tk()
-app.title("Medical OCR Tool")
-app.geometry("300x160")
+app.title("GOAe-Ziffern Assistent")
+app.geometry("420x340")
+app.resizable(False, False)
 
-label = tk.Label(app, text="Medical OCR Tool", font=("Arial", 12))
-label.pack(pady=10)
+# Titel
+title_frame = tk.Frame(app, bg="#2196F3", height=45)
+title_frame.pack(fill="x")
+title_frame.pack_propagate(False)
+tk.Label(
+    title_frame, text="  GOAe-Ziffern Assistent - Orthopaedie",
+    font=("Arial", 13, "bold"), fg="white", bg="#2196F3", anchor="w"
+).pack(fill="both", expand=True, padx=5)
+
+# Kalibrierungs-Buttons
+cal_frame = tk.LabelFrame(app, text="Einrichtung (einmalig)", font=("Arial", 9), padx=10, pady=5)
+cal_frame.pack(fill="x", padx=15, pady=(12, 5))
 
 status_var = tk.StringVar()
-status_var.set("Kein Bereich definiert")
 
-btn = tk.Button(app, text="Bereich definieren", command=lambda: calibrate(status_var))
-btn.pack(pady=10)
+tk.Button(
+    cal_frame, text="1. Krankenblatt-Bereich markieren",
+    command=lambda: [calibrate_ocr_region(status_var), update_status()],
+    font=("Arial", 9), width=30, anchor="w"
+).pack(pady=2)
 
-status_label = tk.Label(app, textvariable=status_var)
-status_label.pack(pady=5)
+tk.Button(
+    cal_frame, text="2. Patientenkopf-Bereich markieren",
+    command=lambda: [calibrate_patient_region(status_var), update_status()],
+    font=("Arial", 9), width=30, anchor="w"
+).pack(pady=2)
 
-info = tk.Label(app, text="F11 = Diagnosen auswählen")
-info.pack(pady=5)
+tk.Button(
+    cal_frame, text="3. Eingabezeile markieren",
+    command=lambda: [calibrate_inputline(status_var), update_status()],
+    font=("Arial", 9), width=30, anchor="w"
+).pack(pady=2)
 
+# Status
+status_label = tk.Label(app, textvariable=status_var, font=("Arial", 11, "bold"))
+status_label.pack(pady=12)
+
+# Hotkey-Info
+info_frame = tk.Frame(app, bg="#f0f0f0")
+info_frame.pack(fill="x", side="bottom")
+tk.Label(
+    info_frame,
+    text="F11 = Diagnose erkennen + Ziffern vorschlagen + eintragen",
+    font=("Arial", 10), fg="#666", bg="#f0f0f0", pady=8
+).pack()
+
+update_status()
 check_run()
-
 app.mainloop()

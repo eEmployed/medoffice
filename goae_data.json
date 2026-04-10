@@ -1,0 +1,822 @@
+{
+  "codes": {
+    "1": "Beratung - auch mittels Fernsprecher",
+    "3": "Eingehende, das gewoehnliche Mass uebersteigende Beratung (mind. 10 Min.)",
+    "5": "Symptombezogene Untersuchung",
+    "6": "Vollstaendige koerperliche Untersuchung eines Organsystems",
+    "7": "Vollstaendige koerperliche Untersuchung mehrerer Organsysteme",
+    "8": "Untersuchung zur Erhebung des Ganzkoerperstatus",
+    "15": "Einleitung und Koordination flankierender therapeutischer Massnahmen",
+    "34": "Eroerterung der Auswirkungen einer Krankheit auf die Lebensgestaltung",
+    "50": "Besuch, einschliesslich Beratung und symptombezogene Untersuchung",
+    "60": "Konsiliarische Eroerterung zwischen zwei oder mehr Aerzten",
+    "70": "Kurze Bescheinigung oder Arbeitsunfaehigkeitsbescheinigung",
+    "75": "Ausfuehrlicher schriftlicher Krankheits- und Befundbericht",
+    "80": "Schriftliche gutachtliche Aeusserung",
+    "85": "Schriftliche gutachtliche Aeusserung mit uebersteigendem Aufwand",
+    "250": "Blutentnahme mittels Spritze/Kanuele",
+    "252": "Injektion subkutan, submukoes, intrakutan oder intramuskulaer",
+    "253": "Injektion intravenoes",
+    "255": "Intraartikulaere/intrabursale Injektion in ein kleines Gelenk",
+    "256": "Intraartikulaere/intrabursale Injektion in ein grosses Gelenk",
+    "266": "Infiltrationsanaesthesie kleiner Bezirke",
+    "267": "Medikamentoese Infiltrationsbehandlung",
+    "268": "Triggerpunktinfiltration",
+    "269": "Akupunktur einschliesslich Pulsdiagnose",
+    "271": "Infusion intravenoes bis 30 Minuten",
+    "272": "Infusion intravenoes ueber 30 Minuten",
+    "290": "Leitungsanaesthesie/perineurale Injektion",
+    "300": "Punktion eines Gelenks",
+    "301": "Punktion eines Gelenks mit Einspritzung",
+    "302": "Punktion der Wirbelsaeule (Lumbalpunktion)",
+    "340": "Lumbale peridurale/epidurale Injektion",
+    "343": "Peridurale/epidurale Injektion sakral",
+    "374": "Anwendung eines Lokalanaesthetikums in Nervennaehe",
+    "380": "Plexusanaesthesie",
+    "410": "Ultraschalluntersuchung eines Organs",
+    "420": "Ultraschalluntersuchung mittels B-Mode-Verfahren",
+    "422": "Ultraschalluntersuchung mit Zuordnung zu einem B-Bild",
+    "424": "Ultraschalluntersuchung des Saeuglingshueftgelenks",
+    "506": "Krankengymnastische Ganzbehandlung als Einzelbehandlung",
+    "507": "Krankengymnastische Teilbehandlung als Einzelbehandlung",
+    "509": "Krankengymnastik in Gruppen (Orthopaedisches Turnen)",
+    "510": "Uebungsbehandlung mit mediko-mechanischen Apparaten",
+    "514": "Extensionsbehandlung kombiniert mit Waermetherapie und Massage",
+    "515": "Extensionsbehandlung (z.B. Glissonschlinge)",
+    "516": "Extensionsbehandlung mit Schraegbett/Extensionstisch",
+    "518": "Prothesengebrauchsschulung",
+    "520": "Teilmassage (Massage einzelner Koerperteile)",
+    "521": "Grossmassage je Sitzung",
+    "523": "Massage im extramuskulaeren Bereich",
+    "525": "Intermittierende apparative Kompressionstherapie an einer Extremitaet",
+    "530": "Kalt- oder Heisspackung(en) oder heisse Rolle",
+    "535": "Heissluftbehandlung eines Koerperteils",
+    "536": "Heissluftbehandlung mehrerer Koerperteile",
+    "538": "Infrarotbehandlung",
+    "539": "Ultraschallbehandlung (therapeutisch)",
+    "548": "Kurzwellen-, Mikrowellenbehandlung",
+    "549": "Kurzwellen-, Mikrowellenbehandlung verschiedener Koerperregionen",
+    "551": "Reizstrombehandlung (Niederfrequenz)",
+    "552": "Iontophorese",
+    "555": "Gezielte Niederfrequenzbehandlung bei Laehmungen",
+    "558": "Apparative isokinetische Muskelfunktionstherapie",
+    "620": "Rheographische Untersuchung der Extremitaeten",
+    "644": "Untersuchung der Stroemungsverhaeltnisse mit Ultraschall-Doppler-Technik",
+    "2000": "Erstversorgung einer kleinen Wunde",
+    "2001": "Versorgung einer kleinen Wunde einschliesslich Naht",
+    "2003": "Erstversorgung einer grossen/stark verunreinigten Wunde",
+    "2004": "Versorgung einer grossen Wunde einschliesslich Naht",
+    "2005": "Versorgung einer grossen Wunde mit Umschneidung und Naht",
+    "2006": "Behandlung einer Wunde die nicht primaer heilt",
+    "2007": "Entfernung von Faeden oder Klammern",
+    "2009": "Entfernung eines Fremdkoerpers unter der Hautoberflaeche",
+    "2010": "Entfernung eines tiefsitzenden Fremdkoerpers operativ",
+    "2015": "Anlegen einer oder mehrerer Redondrainage(n)",
+    "2029": "Anlegen einer pneumatischen Blutleere/Blutsperre an einer Extremitaet",
+    "2033": "Extraktion eines Finger- oder Zehennagels",
+    "2034": "Ausrottung eines Finger-/Zehennagels mit Exzision der Nagelwurzel",
+    "2035": "Plastische Operation am Nagelwall",
+    "2040": "Exstirpation eines Tumors der Fingerweichteile",
+    "2044": "Operation der Syndaktylie mit Vollhautdeckung und Osteotomie",
+    "2051": "Operation eines Ganglions an Hand- oder Fussgelenk",
+    "2052": "Operation eines Ganglions an einem Fingergelenk",
+    "2053": "Replantation eines Fingers",
+    "2060": "Drahtstiftung zur Fixierung eines kleinen Gelenks",
+    "2061": "Entfernung einer Drahtstiftung nach Nr. 2060",
+    "2062": "Drahtstiftung zur Fixierung mehrerer kleiner Gelenke",
+    "2064": "Sehnen-, Faszien- oder Muskelverlagerung/plastische Ausschneidung",
+    "2065": "Abtragung ausgedehnter Nekrosen im Hand-/Fussbereich",
+    "2070": "Muskelkanalbildung / Operation Karpal-/Tarsaltunnelsyndrom",
+    "2072": "Offene Sehnen- oder Muskeldurchschneidung",
+    "2073": "Sehnen-, Muskel- und/oder Fasziennaht",
+    "2074": "Verpflanzung einer Sehne oder eines Muskels",
+    "2075": "Sehnenverkuerzung oder -raffung",
+    "2076": "Operative Loesung von Verwachsungen um eine Sehne",
+    "2080": "Stellungskorrektur der Hammerzehe mittels Sehnendurchschneidung",
+    "2081": "Stellungskorrektur Hammerzehe mit Sehnenverpflanzung",
+    "2082": "Operative Herstellung eines Sehnenbettes einschl. alloplast. Einlage",
+    "2083": "Freie Sehnentransplantation",
+    "2084": "Sehnenscheidenstenosenoperation (Schnellender Finger)",
+    "2087": "Operation Dupuytren-Kontraktur teilweise Entfernung",
+    "2088": "Operation Dupuytren-Kontraktur vollstaendige Entfernung",
+    "2089": "Operation Dupuytren-Kontraktur vollstaendig mit Strangresektion",
+    "2091": "Sehnenscheidenradikaloperation",
+    "2092": "Operation Tendosynovitis Handgelenk/Anularsegmente",
+    "2100": "Naht der Gelenkkapsel Finger-/Zehengelenk",
+    "2101": "Naht der Gelenkkapsel Kiefer-/Hand-/Fussgelenk",
+    "2102": "Naht der Gelenkkapsel Schulter-/Ellenbogen-/Hueft-/Kniegelenk",
+    "2104": "Bandplastik des Kniegelenks",
+    "2105": "Primaere Naht eines Bandes Finger-/Zehengelenk",
+    "2106": "Primaere Naht eines Bandes Sprunggelenk/Syndesmose",
+    "2110": "Synovektomie Finger-/Zehengelenk",
+    "2111": "Synovektomie Hand-/Fussgelenk",
+    "2112": "Synovektomie Schulter-/Ellenbogen-/Kniegelenk",
+    "2113": "Synovektomie Hueftgelenk",
+    "2117": "Meniskusoperation",
+    "2118": "Fremdkoerperentfernung aus Finger-/Hand-/Zehen-/Fussgelenk",
+    "2119": "Entfernung freier Gelenk- oder Fremdkoerper aus grossem Gelenk",
+    "2120": "Denervation Finger-/Zehengelenk",
+    "2121": "Denervation Hand-/Ellenbogen-/Fuss-/Kniegelenk",
+    "2122": "Resektion Finger-/Zehengelenk",
+    "2123": "Resektion Kiefer-/Hand-/Fussgelenk",
+    "2124": "Resektion Ellenbogen-/Schulter-/Hueft-/Kniegelenk",
+    "2130": "Operative Versteifung Finger-/Zehengelenk (Arthrodese)",
+    "2131": "Operative Versteifung Hand-/Fussgelenk (Arthrodese)",
+    "2132": "Operative Versteifung Hueftgelenk (Arthrodese)",
+    "2133": "Operative Versteifung Kniegelenk (Arthrodese)",
+    "2134": "Arthroplastik Finger-/Zehengelenk",
+    "2136": "Arthroplastik Ellenbogen-/Kniegelenk",
+    "2140": "Einbau kuenstliches Finger-/Zehengelenk / Fingerprothese",
+    "2142": "Einbau kuenstliches Hand-/Fussgelenk",
+    "2144": "Einbau kuenstliches Ellenbogen-/Kniegelenk (TEP)",
+    "2146": "Einbau kuenstliches Schultergelenk",
+    "2148": "Neubildung Hueftpfannendach durch Beckenosteotomie",
+    "2149": "Ersatz Hueftkopf/Hueftpfanne (Teilendoprothese)",
+    "2151": "Endoprothetischer Totalersatz Hueftpfanne und Hueftkopf (Hueft-TEP)",
+    "2153": "Endoprothetischer Totalersatz Kniegelenk (Knie-TEP)",
+    "2158": "Exartikulation eines Fingers oder einer Zehe",
+    "2170": "Amputation eines Fingers oder einer Zehe",
+    "2173": "Amputation im Unterarm-/Unterschenkel-/Oberarmbereich",
+    "2181": "Gewaltsame Lockerung/Streckung Kiefer-/Hand-/Fussgelenk",
+    "2182": "Gewaltsame Lockerung/Streckung Schulter-/Ellenbogen-/Hueft-/Kniegelenk (Narkosemobilisation)",
+    "2189": "Arthroskopische Meniskus-OP (Entfernung/Teilresektion) Kniegelenk",
+    "2190": "Arthroskopische erhaltende Meniskus-OP",
+    "2191": "Arthroskopische OP mit Naht/Reinsertion/Rekonstruktion/Plastik",
+    "2193": "Arthroskopische OP mit Synovektomie",
+    "2195": "Zuschlag fuer weitere arthroskopische Eingriffe am selben Gelenk",
+    "2196": "Diagnostische Arthroskopie",
+    "2203": "Einrenkung der Luxation von Wirbelgelenken",
+    "2220": "Einrenkung der Luxation/Subluxation eines Fingergelenks",
+    "2223": "Einrenkung der Luxation Schultergelenk",
+    "2225": "Einrenkung der Luxation Ellenbogengelenk",
+    "2227": "Einrenkung der Luxation Hueftgelenk",
+    "2228": "Einrenkung der Luxation Kniegelenk",
+    "2260": "Einrichtung einer einfachen Fraktur (geschlossen)",
+    "2261": "Einrichtung einer Fraktur mit Dislokation (geschlossen)",
+    "2263": "Einrichtung einer Fraktur von Unterarm/Unterschenkel geschlossen",
+    "2267": "Einrichtung einer Fraktur mit Extension",
+    "2273": "Retention durch Fixationsverband (Gips) einer Hand/eines Fusses",
+    "2274": "Retention durch Gips eines Unterarms/Unterschenkels",
+    "2275": "Retention durch Gips eines Oberarms/Oberschenkels",
+    "2276": "Retention durch zirkulaeren Gipsverband (Rumpf/Schulter/Becken-Bein)",
+    "2280": "Abnahme oder Wechsel eines Gipsverbandes",
+    "2281": "Abnahme oder Wechsel eines zirkulaeren Gipsverbandes",
+    "2283": "Anlegen einer Schienenhuelse, Tutor oder Orthese",
+    "2284": "Abnahme einer Schienenhuelse/Tutor/Orthese",
+    "2290": "Osteosynthese kleines Gelenk/Knochen (Schrauben/Platten/Draht)",
+    "2291": "Osteosynthese grosser Knochen (Schrauben/Platten)",
+    "2293": "Marknagelung",
+    "2295": "Verriegelungsnagelung",
+    "2297": "Osteosynthese mit Fixateur externe",
+    "2300": "Entfernung von Osteosynthesematerial (Schrauben/Draht) kleiner Knochen",
+    "2301": "Entfernung von Osteosynthesematerial grosser Knochen",
+    "2320": "Knochenaufmeisselung/Sequestrotomie kleiner Knochen",
+    "2321": "Knochenaufmeisselung/Sequestrotomie grosser Knochen",
+    "2325": "Korrekturosteotomie kleiner Knochen",
+    "2326": "Korrekturosteotomie grosser Knochen",
+    "2338": "Spongiosatransplantation (Knochentransplantation)",
+    "2344": "Operative Entfernung einer Exostose",
+    "2345": "Operative Entfernung eines Knochentumors",
+    "2349": "Operative Abtragung eines Fersensporns",
+    "2353": "Epiphyseodese (Wachstumsfugenverschluss)",
+    "2380": "Ueberpflanzung von Epidermisstuecken",
+    "2381": "Einfache Hautlappenplastik",
+    "2397": "Operative Ausraeumung eines Haematoms",
+    "2401": "Probeexzision oberflaechliches Koerpergewebe",
+    "2402": "Probeexzision tiefliegendes Koerpergewebe",
+    "2403": "Exzision einer kleinen Geschwulst in/unter der Haut",
+    "2404": "Exzision einer groesseren Geschwulst",
+    "2405": "Entfernung eines Schleimbeutels (Bursektomie)",
+    "2428": "Eroeffnung eines Abszesses oder Furunkels",
+    "2565": "Dekompression einer/mehrerer Nervenwurzel(n) zervikal",
+    "2566": "Dekompression einer/mehrerer Nervenwurzel(n) thorakal/lumbal",
+    "3300": "Arthroskopie ggf. mit Probeexzision",
+    "3301": "Modellierendes Redressement einer schweren Hand-/Fussverbildung",
+    "3302": "Stellungsaenderung oder weiteres Redressement",
+    "3305": "Chiropraktische Wirbelsaeulenmobilisierung",
+    "3306": "Chirotherapeutischer Eingriff an der Wirbelsaeule",
+    "3310": "Abdruecke/Modellherstellung fuer Hand oder Fuss",
+    "3311": "Abdruecke/Modellherstellung fuer Unterarm oder Unterschenkel",
+    "3320": "Anpassen von Kunstgliedern oder grossem orthopaedischen Hilfsmittel",
+    "3501": "Blutkoerperchensenkungsgeschwindigkeit (BSG)",
+    "3524": "C-reaktives Protein (CRP)",
+    "3526": "Rheumafaktor (RF)",
+    "3550": "Blutbild und Blutbildbestandteile",
+    "3555": "Calcium",
+    "3557": "Kalium",
+    "3580": "Anorganisches Phosphat",
+    "3583": "Harnsaeure",
+    "3585": "Kreatinin",
+    "3587": "Alkalische Phosphatase",
+    "3590": "Creatinkinase (CK)",
+    "3741": "C-reaktives Protein (CRP) Ligandenassay",
+    "4138": "25-Hydroxy-Vitamin D (25-OH-D)",
+    "5010": "Finger oder Zehen: Roentgen in zwei Ebenen",
+    "5020": "Handgelenk/Sprunggelenk/Fuss/Kniescheibe: Roentgen in zwei Ebenen",
+    "5021": "Handgelenk/Sprunggelenk: ergaenzende Ebene(n)",
+    "5030": "Oberarm/Unterarm/Oberschenkel: Roentgen in zwei Ebenen",
+    "5031": "Oberarm/Unterarm/Oberschenkel: ergaenzende Ebene(n)",
+    "5035": "Teile des Skeletts in einer Ebene, je Teil",
+    "5037": "Bestimmung des Skelettalters mit Endgroessenberechnung",
+    "5040": "Beckenuebersicht",
+    "5050": "Kontrastuntersuchung Hueft-/Knie-/Schultergelenk (Arthrographie)",
+    "5070": "Kontrastuntersuchung uebrige Gelenke (Arthrographie)",
+    "5100": "Halswirbelsaeule in zwei Ebenen",
+    "5101": "Halswirbelsaeule: ergaenzende Ebene(n)",
+    "5105": "Brust- oder Lendenwirbelsaeule in zwei Ebenen, je Teil",
+    "5106": "Brust- oder Lendenwirbelsaeule: ergaenzende Ebene(n)",
+    "5110": "Ganzaufnahme der Wirbelsaeule oder einer Extremitaet",
+    "5111": "Ganzaufnahme: ergaenzende Ebene(n)",
+    "5290": "Schichtaufnahme (Tomographie)",
+    "5295": "Durchleuchtung als selbstaendige Leistung",
+    "5425": "Ganzkoerperskelettszintigraphie in zwei Sichten",
+    "5426": "Teilkoerperskelettszintigraphie",
+    "5475": "Osteodensitometrie (Knochendichtemessung)",
+    "5700": "MRT Kopf",
+    "5705": "MRT Wirbelsaeule in zwei Projektionen",
+    "5729": "MRT Gelenk/Extremitaetenabschnitt",
+    "5730": "MRT Extremitaet(en) mit zwei grossen Gelenken",
+    "5731": "Ergaenzende MRT-Serie(n) (z.B. nach Kontrastmittel)"
+  },
+  "mappings": [
+    {
+      "keywords": ["gonarthrose", "kniearthrose", "kniegelenksarthrose", "retropatellararthrose"],
+      "codes": ["1", "3", "5", "256", "267", "530", "539", "551", "5020"],
+      "label": "Gonarthrose (Kniearthrose)"
+    },
+    {
+      "keywords": ["coxarthrose", "hueftarthrose", "hueftgelenksarthrose"],
+      "codes": ["1", "3", "5", "256", "267", "530", "539", "5040", "5729"],
+      "label": "Coxarthrose (Hueftarthrose)"
+    },
+    {
+      "keywords": ["arthrose", "polyarthrose", "gelenkarthrose", "gelenkverschleiss"],
+      "codes": ["1", "3", "5", "256", "267", "530", "539", "551", "250", "3524", "5020"],
+      "label": "Arthrose allgemein"
+    },
+    {
+      "keywords": ["meniskus", "meniskusriss", "meniskusschaden", "meniskuslaesion", "innenmeniskus", "aussenmeniskus"],
+      "codes": ["1", "3", "5", "300", "5020", "5729", "2189", "2190", "3300"],
+      "label": "Meniskusschaden"
+    },
+    {
+      "keywords": ["kreuzband", "kreuzbandruptur", "vorderes kreuzband", "hinteres kreuzband", "vkb", "hkb", "acl"],
+      "codes": ["1", "3", "5", "5020", "5729", "2104", "2191", "3300"],
+      "label": "Kreuzbandriss / Kreuzbandruptur"
+    },
+    {
+      "keywords": ["impingement", "schulterimpingement", "subakromial", "engpasssyndrom"],
+      "codes": ["1", "3", "5", "256", "267", "410", "5035", "5729", "506"],
+      "label": "Schulter-Impingement-Syndrom"
+    },
+    {
+      "keywords": ["rotatorenmanschette", "supraspinatussehne", "supraspinatusruptur", "infraspinatus", "subscapularis", "rotatorenmanschettenruptur", "rm-ruptur"],
+      "codes": ["1", "3", "5", "256", "410", "5035", "5729", "2073", "2074", "2191", "3300"],
+      "label": "Rotatorenmanschettenlaesion"
+    },
+    {
+      "keywords": ["epicondylitis", "tennisellbogen", "tennisarm", "golferellbogen", "epicondylopathie", "epikondylitis"],
+      "codes": ["1", "3", "5", "267", "268", "530", "539", "551", "5030"],
+      "label": "Epicondylitis (Tennisellbogen/Golferellbogen)"
+    },
+    {
+      "keywords": ["karpaltunnel", "karpaltunnelsyndrom", "cts", "medianuskompression"],
+      "codes": ["1", "3", "5", "2070", "506"],
+      "label": "Karpaltunnelsyndrom"
+    },
+    {
+      "keywords": ["bandscheibe", "bandscheibenvorfall", "diskusprolaps", "diskushernie", "prolaps", "protrusion", "sequester", "nucleus pulposus"],
+      "codes": ["1", "3", "5", "267", "340", "5105", "5705", "3305", "3306", "506", "551"],
+      "label": "Bandscheibenvorfall / Diskusprolaps"
+    },
+    {
+      "keywords": ["hws", "hws-syndrom", "cervikalsyndrom", "cervikalgie", "nackenschmerz", "zervikal", "halswirbel"],
+      "codes": ["1", "3", "5", "267", "3305", "3306", "5100", "5705", "506", "520", "530"],
+      "label": "HWS-Syndrom / Cervikalsyndrom"
+    },
+    {
+      "keywords": ["lws", "lws-syndrom", "lumbalsyndrom", "lumbalgie", "lumbago", "hexenschuss", "lendenwirbel", "kreuzschmerz", "ischiassyndrom"],
+      "codes": ["1", "3", "5", "267", "268", "3305", "3306", "5105", "5705", "506", "520", "530", "551"],
+      "label": "LWS-Syndrom / Lumbalgie"
+    },
+    {
+      "keywords": ["bws", "bws-syndrom", "thorakalsyndrom", "dorsalgie", "brustwirbel"],
+      "codes": ["1", "3", "5", "267", "3305", "3306", "5105", "506", "520", "530"],
+      "label": "BWS-Syndrom / Dorsalgie"
+    },
+    {
+      "keywords": ["ischialgie", "ischias", "ischiasnerv", "lumboischialgie"],
+      "codes": ["1", "3", "5", "267", "340", "343", "5105", "5705", "506", "551"],
+      "label": "Ischialgie / Lumboischialgie"
+    },
+    {
+      "keywords": ["skoliose", "wirbelsaeulenverkruemmung"],
+      "codes": ["1", "3", "5", "5110", "5705", "506", "507"],
+      "label": "Skoliose"
+    },
+    {
+      "keywords": ["osteoporose", "knochendichte", "knochenschwund", "osteopenie"],
+      "codes": ["1", "3", "5", "250", "5475", "5105", "3555", "3580", "3587", "4138"],
+      "label": "Osteoporose"
+    },
+    {
+      "keywords": ["hallux", "hallux valgus", "grosszehe", "grosszehenfehlstellung", "hallux rigidus"],
+      "codes": ["1", "3", "5", "5010", "2080", "2081", "2325"],
+      "label": "Hallux valgus / Hallux rigidus"
+    },
+    {
+      "keywords": ["fersensporn", "plantarfasziitis", "plantarfasziopathie", "ferse", "plantarfaszii"],
+      "codes": ["1", "3", "5", "267", "268", "539", "551", "5020", "2349"],
+      "label": "Fersensporn / Plantarfasziitis"
+    },
+    {
+      "keywords": ["achillessehne", "achillessehnenruptur", "achillodynie", "achillessehnenentzuendung"],
+      "codes": ["1", "3", "5", "267", "410", "539", "2073", "5020"],
+      "label": "Achillessehnenerkrankung"
+    },
+    {
+      "keywords": ["frozen shoulder", "schultersteife", "adhaeisve kapsulitis", "periarthropathia", "periarthritis"],
+      "codes": ["1", "3", "5", "256", "267", "2182", "506", "530", "539", "5035", "5729"],
+      "label": "Frozen Shoulder / Schultersteife"
+    },
+    {
+      "keywords": ["bursitis", "schleimbeutel", "schleimbeutelentzuendung", "bursopathie", "olekranon"],
+      "codes": ["1", "3", "5", "255", "256", "300", "2405", "539"],
+      "label": "Bursitis (Schleimbeutelentzuendung)"
+    },
+    {
+      "keywords": ["sehnenscheiden", "tendovaginitis", "sehnenscheidenentzuendung", "tendosynovitis", "de quervain"],
+      "codes": ["1", "3", "5", "267", "530", "539", "2084", "2092"],
+      "label": "Sehnenscheidenentzuendung / Tendovaginitis"
+    },
+    {
+      "keywords": ["schnellender finger", "trigger finger", "schnappfinger", "ringbandstenose", "tendovaginitis stenosans"],
+      "codes": ["1", "3", "5", "2084"],
+      "label": "Schnellender Finger (Ringbandstenose)"
+    },
+    {
+      "keywords": ["dupuytren", "dupuytrensche kontraktur", "palmarfibrose", "palmarfibromatose"],
+      "codes": ["1", "3", "5", "2087", "2088", "2089"],
+      "label": "Dupuytren-Kontraktur"
+    },
+    {
+      "keywords": ["ganglion", "ueberbein", "handgelenkganglion"],
+      "codes": ["1", "3", "5", "2051", "2052"],
+      "label": "Ganglion (Ueberbein)"
+    },
+    {
+      "keywords": ["baker", "bakerzyste", "baker-zyste", "poplitealzyste"],
+      "codes": ["1", "3", "5", "410", "5020", "5729", "300"],
+      "label": "Baker-Zyste"
+    },
+    {
+      "keywords": ["fraktur", "bruch", "knochenbruch", "gebrochen"],
+      "codes": ["1", "3", "5", "2260", "2261", "2273", "2274", "2275", "5030", "5020", "5010"],
+      "label": "Fraktur allgemein"
+    },
+    {
+      "keywords": ["radiusfraktur", "handgelenkbruch", "handgelenksfraktur", "distale radiusfraktur", "colles"],
+      "codes": ["1", "3", "5", "2261", "2263", "2274", "5020", "2291"],
+      "label": "Radiusfraktur (Handgelenkbruch)"
+    },
+    {
+      "keywords": ["sprunggelenkfraktur", "sprunggelenk", "knoechelfraktur", "malleolarfraktur", "knoechelbruch", "weber"],
+      "codes": ["1", "3", "5", "2261", "2263", "2274", "5020", "2291"],
+      "label": "Sprunggelenkfraktur"
+    },
+    {
+      "keywords": ["oberschenkelhals", "schenkelhalsfraktur", "hueftfraktur", "pertrochantaer"],
+      "codes": ["1", "3", "5", "2261", "2275", "5040", "2149", "2151", "2291", "2295"],
+      "label": "Schenkelhalsfraktur"
+    },
+    {
+      "keywords": ["distorsion", "verstauchung", "baenderdehnung", "baenderzerrung"],
+      "codes": ["1", "5", "2273", "5020", "5729"],
+      "label": "Distorsion (Verstauchung)"
+    },
+    {
+      "keywords": ["sprunggelenk", "baenderriss", "aussenband", "lig. fibulotalare", "supinationstrauma", "umgeknickt", "laterale bandverletzung"],
+      "codes": ["1", "3", "5", "2106", "2273", "5020", "5729", "410"],
+      "label": "Aussenbandruptur Sprunggelenk"
+    },
+    {
+      "keywords": ["schulter", "schulterluxation", "schulterausrenkung", "schulterinstabilitaet", "labrum", "bankart"],
+      "codes": ["1", "3", "5", "2223", "5035", "5729", "2191", "3300"],
+      "label": "Schulterluxation / Schulterinstabilitaet"
+    },
+    {
+      "keywords": ["rheumatoid", "rheumatoide arthritis", "polyarthritis", "rheuma", "rheumatisch"],
+      "codes": ["1", "3", "5", "250", "3501", "3524", "3526", "3550", "5020"],
+      "label": "Rheumatoide Arthritis"
+    },
+    {
+      "keywords": ["fibromyalgie", "fibromyalgiesyndrom", "weichteilrheumatismus"],
+      "codes": ["1", "3", "34", "250", "3501", "3524", "3550", "506", "520", "530"],
+      "label": "Fibromyalgie"
+    },
+    {
+      "keywords": ["gicht", "hyperurikaemie", "arthritis urica", "podagra"],
+      "codes": ["1", "3", "5", "250", "300", "3583", "3524", "5020"],
+      "label": "Gicht / Arthritis urica"
+    },
+    {
+      "keywords": ["sudeck", "crps", "morbus sudeck", "algodystrophie", "reflexdystrophie", "komplexes regionales schmerzsyndrom"],
+      "codes": ["1", "3", "5", "34", "250", "3550", "506", "551", "5020", "5425"],
+      "label": "CRPS / Morbus Sudeck"
+    },
+    {
+      "keywords": ["spinalkanalstenose", "spinalstenose", "claudicatio spinalis", "wirbelkanal"],
+      "codes": ["1", "3", "5", "340", "5105", "5705", "2565", "2566"],
+      "label": "Spinalkanalstenose"
+    },
+    {
+      "keywords": ["spondylose", "spondylarthrose", "spondylolisthesis", "spondylolyse", "gleitwirbel", "osteochondrose"],
+      "codes": ["1", "3", "5", "267", "3305", "3306", "5105", "5705", "506"],
+      "label": "Spondylose / Spondylarthrose"
+    },
+    {
+      "keywords": ["muskelriss", "muskelzerrung", "muskelfaserriss", "zerrung", "muskelbuendel"],
+      "codes": ["1", "3", "5", "410", "530", "539", "551", "506"],
+      "label": "Muskelverletzung / Zerrung"
+    },
+    {
+      "keywords": ["prellung", "kontusion", "quetschung"],
+      "codes": ["1", "5", "530", "5020", "5030"],
+      "label": "Prellung / Kontusion"
+    },
+    {
+      "keywords": ["wunde", "riss", "schnitt", "platzwunde", "schuerfw"],
+      "codes": ["1", "2000", "2001", "2003", "2004", "2007"],
+      "label": "Wundversorgung"
+    },
+    {
+      "keywords": ["hueft-tep", "hueftendoprothese", "hueftprothese", "hueftgelenkersatz"],
+      "codes": ["1", "3", "5", "2151", "5040"],
+      "label": "Hueft-TEP"
+    },
+    {
+      "keywords": ["knie-tep", "knieendoprothese", "knieprothese", "kniegelenkersatz"],
+      "codes": ["1", "3", "5", "2153", "5020"],
+      "label": "Knie-TEP"
+    },
+    {
+      "keywords": ["exostose", "osteom", "osteochondrom", "knochenauswuchs"],
+      "codes": ["1", "3", "5", "2344", "5020", "5030"],
+      "label": "Exostose / Osteochondrom"
+    },
+    {
+      "keywords": ["osteosynthese", "metallentfernung", "me", "schraubenentfernung", "plattenentfernung"],
+      "codes": ["1", "3", "5", "2300", "2301", "5020", "5030"],
+      "label": "Metallentfernung / Osteosynthesematerial"
+    },
+    {
+      "keywords": ["nachbehandlung", "reha", "rehabilitation", "anschlussheilbehandlung", "nachsorge"],
+      "codes": ["1", "3", "15", "506", "507", "510", "518", "520", "530"],
+      "label": "Nachbehandlung / Rehabilitation"
+    },
+    {
+      "keywords": ["gutachten", "begutachtung", "arbeitsunfall", "berufsgenossenschaft", "bg"],
+      "codes": ["1", "3", "5", "75", "80", "85"],
+      "label": "Gutachten / BG-Untersuchung"
+    },
+    {
+      "keywords": ["cubital", "cubitaltunnelsyndrom", "sulcus ulnaris", "ulnarisneuropathie", "ulnarisrinne"],
+      "codes": ["1", "3", "5", "2070", "2584"],
+      "label": "Cubitaltunnelsyndrom / Sulcus-ulnaris-Syndrom"
+    },
+    {
+      "keywords": ["bizepssehne", "bizepssehnenruptur", "lange bizepssehne", "lbs"],
+      "codes": ["1", "3", "5", "410", "5729", "2073", "2074"],
+      "label": "Bizepssehnenruptur"
+    },
+    {
+      "keywords": ["patella", "patellaluxation", "chondropathia patellae", "retropatellar", "patellasehne"],
+      "codes": ["1", "3", "5", "5020", "5729", "256", "506"],
+      "label": "Patellaerkrankung"
+    },
+    {
+      "keywords": ["morbus bechterew", "bechterew", "spondylitis ankylosans", "ankylosierende"],
+      "codes": ["1", "3", "5", "250", "3501", "3524", "5100", "5105", "5040", "5705", "506"],
+      "label": "Morbus Bechterew (Spondylitis ankylosans)"
+    }
+  ],
+  "rules": {
+    "1": {
+      "points": 80, "fee_simple": 4.66, "fee_2_3": 10.72, "fee_3_5": 16.32,
+      "exclusions": ["3", "34"],
+      "frequency": "Neben C-O Leistungen nur 1x im Behandlungsfall"
+    },
+    "3": {
+      "points": 150, "fee_simple": 8.74, "fee_2_3": 20.11, "fee_3_5": 30.59,
+      "exclusions": ["1", "34"],
+      "frequency": "Nur neben 5/6/7/8 abrechenbar, sonst allein"
+    },
+    "5": {
+      "points": 80, "fee_simple": 4.66, "fee_2_3": 10.72, "fee_3_5": 16.32,
+      "exclusions": ["6", "7", "8"]
+    },
+    "6": {
+      "points": 100, "fee_simple": 5.83, "fee_2_3": 13.41, "fee_3_5": 20.41,
+      "exclusions": ["5", "7", "8"]
+    },
+    "7": {
+      "points": 160, "fee_simple": 9.33, "fee_2_3": 21.45, "fee_3_5": 32.66,
+      "exclusions": ["5", "6", "8"]
+    },
+    "8": {
+      "points": 196, "fee_simple": 11.42, "fee_2_3": 26.27, "fee_3_5": 39.97,
+      "exclusions": ["5", "6", "7"]
+    },
+    "15": {
+      "points": 120, "fee_simple": 6.99, "fee_2_3": 16.09, "fee_3_5": 24.47,
+      "exclusions": ["34"],
+      "frequency": "Nur 1x im Kalenderjahr"
+    },
+    "34": {
+      "points": 300, "fee_simple": 17.49, "fee_2_3": 40.22, "fee_3_5": 61.22,
+      "exclusions": ["1", "3", "15"],
+      "frequency": "Max 2x in 6 Monaten"
+    },
+    "250": {
+      "points": 40, "fee_simple": 2.33, "fee_2_3": 4.20, "fee_3_5": 5.83,
+      "exclusions": ["252"]
+    },
+    "252": {
+      "points": 40, "fee_simple": 2.33, "fee_2_3": 5.36, "fee_3_5": 8.16,
+      "exclusions": ["250"]
+    },
+    "255": {
+      "points": 95, "fee_simple": 5.54, "fee_2_3": 12.74, "fee_3_5": 19.39,
+      "exclusions": ["267", "268", "300", "301"]
+    },
+    "256": {
+      "points": 185, "fee_simple": 10.78, "fee_2_3": 24.80, "fee_3_5": 37.73,
+      "exclusions": []
+    },
+    "266": {
+      "points": 60, "fee_simple": 3.50, "fee_2_3": 8.04, "fee_3_5": 12.25,
+      "exclusions": []
+    },
+    "267": {
+      "points": 80, "fee_simple": 4.66, "fee_2_3": 10.72, "fee_3_5": 16.32,
+      "exclusions": ["268"]
+    },
+    "268": {
+      "points": 130, "fee_simple": 7.58, "fee_2_3": 17.43, "fee_3_5": 26.53,
+      "exclusions": ["267"]
+    },
+    "290": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 26.81, "fee_3_5": 40.81,
+      "exclusions": []
+    },
+    "300": {
+      "points": 120, "fee_simple": 6.99, "fee_2_3": 16.09, "fee_3_5": 24.47,
+      "exclusions": ["301", "2189", "2190", "2191"]
+    },
+    "301": {
+      "points": 160, "fee_simple": 9.33, "fee_2_3": 21.45, "fee_3_5": 32.66,
+      "exclusions": ["300", "2189", "2190", "2191"]
+    },
+    "340": {
+      "points": 400, "fee_simple": 23.31, "fee_2_3": 53.62, "fee_3_5": 81.59,
+      "exclusions": []
+    },
+    "343": {
+      "points": 300, "fee_simple": 17.49, "fee_2_3": 40.22, "fee_3_5": 61.22,
+      "exclusions": []
+    },
+    "410": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 26.81, "fee_3_5": 40.81,
+      "exclusions": ["420"]
+    },
+    "420": {
+      "points": 80, "fee_simple": 4.66, "fee_2_3": 10.72, "fee_3_5": 16.32,
+      "exclusions": [],
+      "frequency": "Max 3x je Sitzung"
+    },
+    "506": {
+      "points": 120, "fee_simple": 6.99, "fee_2_3": 16.08, "fee_3_5": 24.47,
+      "exclusions": ["507", "520", "521"]
+    },
+    "507": {
+      "points": 80, "fee_simple": 4.66, "fee_2_3": 10.72, "fee_3_5": 16.32,
+      "exclusions": ["506", "520", "521"]
+    },
+    "510": {
+      "points": 60, "fee_simple": 3.50, "fee_2_3": 8.04, "fee_3_5": 12.25,
+      "exclusions": []
+    },
+    "520": {
+      "points": 45, "fee_simple": 2.62, "fee_2_3": 6.03, "fee_3_5": 9.17,
+      "exclusions": ["506", "507", "521"]
+    },
+    "521": {
+      "points": 75, "fee_simple": 4.37, "fee_2_3": 10.05, "fee_3_5": 15.30,
+      "exclusions": ["506", "507", "520"]
+    },
+    "530": {
+      "points": 35, "fee_simple": 2.04, "fee_2_3": 4.69, "fee_3_5": 7.14,
+      "exclusions": []
+    },
+    "539": {
+      "points": 44, "fee_simple": 2.56, "fee_2_3": 5.89, "fee_3_5": 8.96,
+      "exclusions": []
+    },
+    "551": {
+      "points": 48, "fee_simple": 2.80, "fee_2_3": 6.44, "fee_3_5": 9.80,
+      "exclusions": ["539"]
+    },
+    "2000": {
+      "points": 70, "fee_simple": 4.08, "fee_2_3": 9.38, "fee_3_5": 14.28,
+      "exclusions": ["2001", "2003", "2073"]
+    },
+    "2001": {
+      "points": 130, "fee_simple": 7.58, "fee_2_3": 17.43, "fee_3_5": 26.53,
+      "exclusions": ["2000", "2073"]
+    },
+    "2007": {
+      "points": 40, "fee_simple": 2.33, "fee_2_3": 5.36, "fee_3_5": 8.16,
+      "exclusions": []
+    },
+    "2051": {
+      "points": 600, "fee_simple": 34.97, "fee_2_3": 80.44, "fee_3_5": 122.40,
+      "exclusions": ["2403", "2404", "2405"]
+    },
+    "2070": {
+      "points": 1660, "fee_simple": 96.76, "fee_2_3": 222.54, "fee_3_5": 338.66,
+      "exclusions": ["2072", "2084", "2565", "2566"]
+    },
+    "2073": {
+      "points": 650, "fee_simple": 37.89, "fee_2_3": 87.14, "fee_3_5": 132.62,
+      "exclusions": ["2000", "2001", "2064", "2072", "2104", "2106"]
+    },
+    "2084": {
+      "points": 407, "fee_simple": 23.72, "fee_2_3": 54.56, "fee_3_5": 83.02,
+      "exclusions": ["2070", "2091"]
+    },
+    "2104": {
+      "points": 2310, "fee_simple": 134.64, "fee_2_3": 309.68, "fee_3_5": 471.24,
+      "exclusions": ["2072", "2073", "2074", "2075", "2076", "2189"]
+    },
+    "2106": {
+      "points": 1110, "fee_simple": 64.70, "fee_2_3": 148.81, "fee_3_5": 226.45,
+      "exclusions": ["2073", "2074", "2075", "2076"]
+    },
+    "2117": {
+      "points": 1480, "fee_simple": 86.27, "fee_2_3": 198.41, "fee_3_5": 301.95,
+      "exclusions": ["2189", "2190", "2191"]
+    },
+    "2189": {
+      "points": 1500, "fee_simple": 87.43, "fee_2_3": 201.09, "fee_3_5": 306.01,
+      "exclusions": ["300", "301", "2104", "2117", "2190", "2191", "2193", "3300"]
+    },
+    "2190": {
+      "points": 1800, "fee_simple": 104.92, "fee_2_3": 241.31, "fee_3_5": 367.22,
+      "exclusions": ["300", "301", "2117", "2189", "2191", "2193", "3300"]
+    },
+    "2191": {
+      "points": 2000, "fee_simple": 116.57, "fee_2_3": 268.12, "fee_3_5": 408.00,
+      "exclusions": ["300", "301", "2117", "2189", "2190", "2193", "3300"]
+    },
+    "2260": {
+      "points": 400, "fee_simple": 23.31, "fee_2_3": 53.62, "fee_3_5": 81.59,
+      "exclusions": ["2261"]
+    },
+    "2261": {
+      "points": 600, "fee_simple": 34.97, "fee_2_3": 80.44, "fee_3_5": 122.40,
+      "exclusions": ["2260"]
+    },
+    "2273": {
+      "points": 100, "fee_simple": 5.83, "fee_2_3": 13.41, "fee_3_5": 20.41,
+      "exclusions": []
+    },
+    "2274": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 26.81, "fee_3_5": 40.81,
+      "exclusions": []
+    },
+    "2275": {
+      "points": 300, "fee_simple": 17.49, "fee_2_3": 40.22, "fee_3_5": 61.22,
+      "exclusions": []
+    },
+    "2280": {
+      "points": 60, "fee_simple": 3.50, "fee_2_3": 8.04, "fee_3_5": 12.25,
+      "exclusions": []
+    },
+    "2291": {
+      "points": 1200, "fee_simple": 69.94, "fee_2_3": 160.86, "fee_3_5": 244.79,
+      "exclusions": []
+    },
+    "2300": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 26.81, "fee_3_5": 40.81,
+      "exclusions": []
+    },
+    "2301": {
+      "points": 370, "fee_simple": 21.57, "fee_2_3": 49.61, "fee_3_5": 75.50,
+      "exclusions": []
+    },
+    "2405": {
+      "points": 370, "fee_simple": 21.57, "fee_2_3": 49.61, "fee_3_5": 75.50,
+      "exclusions": ["2051"]
+    },
+    "3300": {
+      "points": 700, "fee_simple": 40.80, "fee_2_3": 93.84, "fee_3_5": 142.80,
+      "exclusions": ["2189", "2190", "2191"]
+    },
+    "3305": {
+      "points": 150, "fee_simple": 8.74, "fee_2_3": 20.11, "fee_3_5": 30.59,
+      "exclusions": ["3306"]
+    },
+    "3306": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 26.81, "fee_3_5": 40.81,
+      "exclusions": ["3305"]
+    },
+    "3501": {
+      "points": 25, "fee_simple": 3.50, "fee_2_3": 3.50, "fee_3_5": 3.50,
+      "exclusions": []
+    },
+    "3524": {
+      "points": 50, "fee_simple": 7.00, "fee_2_3": 7.00, "fee_3_5": 7.00,
+      "exclusions": ["3741"]
+    },
+    "3526": {
+      "points": 50, "fee_simple": 7.00, "fee_2_3": 7.00, "fee_3_5": 7.00,
+      "exclusions": []
+    },
+    "3550": {
+      "points": 25, "fee_simple": 3.50, "fee_2_3": 3.50, "fee_3_5": 3.50,
+      "exclusions": []
+    },
+    "3555": {
+      "points": 25, "fee_simple": 1.75, "fee_2_3": 1.75, "fee_3_5": 1.75,
+      "exclusions": []
+    },
+    "3580": {
+      "points": 25, "fee_simple": 1.75, "fee_2_3": 1.75, "fee_3_5": 1.75,
+      "exclusions": []
+    },
+    "3583": {
+      "points": 25, "fee_simple": 1.75, "fee_2_3": 1.75, "fee_3_5": 1.75,
+      "exclusions": []
+    },
+    "3585": {
+      "points": 25, "fee_simple": 1.75, "fee_2_3": 1.75, "fee_3_5": 1.75,
+      "exclusions": []
+    },
+    "3587": {
+      "points": 25, "fee_simple": 1.75, "fee_2_3": 1.75, "fee_3_5": 1.75,
+      "exclusions": []
+    },
+    "3590": {
+      "points": 25, "fee_simple": 1.75, "fee_2_3": 1.75, "fee_3_5": 1.75,
+      "exclusions": []
+    },
+    "3741": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 11.66, "fee_3_5": 11.66,
+      "exclusions": ["3524"]
+    },
+    "4138": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 11.66, "fee_3_5": 11.66,
+      "exclusions": []
+    },
+    "5010": {
+      "points": 80, "fee_simple": 4.66, "fee_2_3": 10.72, "fee_3_5": 16.32,
+      "exclusions": []
+    },
+    "5020": {
+      "points": 100, "fee_simple": 5.83, "fee_2_3": 13.41, "fee_3_5": 20.41,
+      "exclusions": []
+    },
+    "5030": {
+      "points": 120, "fee_simple": 6.99, "fee_2_3": 16.09, "fee_3_5": 24.47,
+      "exclusions": []
+    },
+    "5035": {
+      "points": 80, "fee_simple": 4.66, "fee_2_3": 10.72, "fee_3_5": 16.32,
+      "exclusions": []
+    },
+    "5040": {
+      "points": 150, "fee_simple": 8.74, "fee_2_3": 20.11, "fee_3_5": 30.59,
+      "exclusions": []
+    },
+    "5100": {
+      "points": 120, "fee_simple": 6.99, "fee_2_3": 16.09, "fee_3_5": 24.47,
+      "exclusions": []
+    },
+    "5105": {
+      "points": 200, "fee_simple": 11.66, "fee_2_3": 26.81, "fee_3_5": 40.81,
+      "exclusions": []
+    },
+    "5475": {
+      "points": 300, "fee_simple": 17.49, "fee_2_3": 40.22, "fee_3_5": 61.22,
+      "exclusions": []
+    },
+    "5705": {
+      "points": 3000, "fee_simple": 174.86, "fee_2_3": 244.81, "fee_3_5": 244.81,
+      "exclusions": []
+    },
+    "5729": {
+      "points": 2500, "fee_simple": 145.72, "fee_2_3": 262.29, "fee_3_5": 262.29,
+      "exclusions": []
+    }
+  }
+}
